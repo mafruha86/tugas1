@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #c55858;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0b396b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'tampilkan_data_barang' %}">Data Barang</a></li>
+            <li><a href="{% url 'tambah_barang' %}">Tambah Barang</a></li>
+            <li><a href="{% url 'daftar_penjualan' %}">Daftar Penjualan</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Tambah Barang</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="id_nama">Nama:</label>
+            <input type="text" id="id_nama" name="nama" required>
+
+            <label for="id_deskripsi">Deskripsi:</label>
+            <textarea id="id_deskripsi" name="deskripsi" rows="4" required></textarea>
+
+            <label for="id_harga">Harga:</label>
+            <input type="text" id="id_harga" name="harga" required>
+
+            <label for="id_stok">Stok:</label>
+            <input type="text" id="id_stok" name="stok" required>
+
+            <button type="submit">Simpan</button>
+        </form>
+    </div>
+</body>
+
+</html>
